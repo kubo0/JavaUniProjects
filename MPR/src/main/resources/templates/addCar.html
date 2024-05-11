@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Car</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+    <div class="top">
+        <h2>Add Car:</h2>
+    </div>
+    <div class="withContent">
+        <form action="#" th:object="${car}" th:action="@{/addCar}" method="post">
+            <div>
+                <label>Brand</label><br>
+                <input id="brandInput" th:field="*{brand}" type="input" name="brand" required>
+            </div>
+            <div>
+                <label>Model</label><br>
+                <input id="modelInput" th:field="*{model}" type="input" name="model" required>
+            </div>
+            <div>
+                <label>Production year</label><br>
+                <input id="prodYearInput" th:field="*{productionYear}" type="input" name="productionYear" required>
+            </div>
+            <button id="addCarSubmit" type="submit">Add</button>
+        </form>
+    </div>
+</body>
+</html>

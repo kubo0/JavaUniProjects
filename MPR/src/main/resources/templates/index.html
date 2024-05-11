@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Cars</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="top">
+    <h2>Cars Manager</h2>
+  </div>
+  <div class="messageDiv">
+    <p th:if="${successMessage}" th:text="${successMessage}"></p>
+  </div>
+  <div class="top">
+    <h3>Cars:</h3>
+  </div>
+  <div class="withContent">
+    <table>
+      <thead>
+      <th>ID</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Production year</th>
+      </thead>
+      <tbody>
+      <tr th:each="car : ${cars}">
+        <td th:text="${car.id}"></td>
+        <td th:text="${car.brand}"></td>
+        <td th:text="${car.model}"></td>
+        <td th:text="${car.productionYear}"></td>
+        <td>
+          <a id="editCarButton" th:href="@{'/editCar/' + ${car.id}}">Edit</a>
+          <a id="deleteCarButton" th:href="@{'/deleteCar/' + ${car.id}}">Delete</a>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align: center"><a id="addCarButton" th:href="@{/addCar}">Add Car</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
